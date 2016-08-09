@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="movieApp">
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+</head>
+<body ng-controller="movieController">
+	<div class="conatiner-fluid">
+		<div class="col-sm-10 col-sm-offset-2">
+			<h1>Movie App</h1>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-2">
+				<form ng-submit="getNewMovieStuff()" class="form-inline">
+					<md-input-container>
+						<label>Search</label>
+						<input ng-model="userChoice">
+					</md-input-container>
+				</form>
+			</div>
+		</div>
+		<!-- <form ng-submit="getNewMovieStuff()" class="form-inline">
+			<div class="form-group">
+				<label for="movieSearch">Search Database</label>
+				<div class="input-group">
+					<div class="input-group-addon">Search</div>
+					<input type="text" ng-model="userChoice" class="form-control">
+				</div>
+			</div>
+			<md-button type="submit" class="md-raised form-control" aria-label="submit">Submit</md-button>
+		</form> -->
+		<md-content class="md-padding" layout-xs="column" layout-wrap layout="row">
+			<div flex-xs flex-gt-md="20" layout="column" ng-repeat="movie in movieArray" class="movie-poster">
+				<md-card>
+			        <img ng-src="{{imagePath}}{{movie.poster_path}}" class="md-card-image" alt="Washed Out">
+			        <md-card-title>
+			          <md-card-title-text>
+			            <span class="md-headline">{{movie.title}}</span>
+			          </md-card-title-text>
+			        </md-card-title>
+			        <md-card-actions layout="row" layout-align="end center">
+			        	<md-button class="md-warn" ng-click="showAlert($event, movie)">
+			        		More Info
+		        		</md-button>
+			        </md-card-actions>
+		        </md-card>
+			</div>
+		</md-content>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+	<script text='text/javascript' src="movie-app-ang.js"></script>
+</body>
+</html>
